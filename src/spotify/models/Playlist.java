@@ -34,6 +34,7 @@ public class Playlist {
         if (!playlist.contains(music))
             throw new InvalidOperationException("Music not found in playlist");
         playlist.remove(music);
+        System.out.println("\nMusic removed from playlist: " + music.getTitle());
     }
 
     public ArrayList<Music> searchInPlaylist(String title) {
@@ -41,7 +42,7 @@ public class Playlist {
         for (Music m : playlist) {
             if (m.getTitle().equals(title)) result.add(m);
         }
-        return result;
+        return result.isEmpty() ? null : result;
     }
 
     public Music searchInPlaylist(String title, User singer) {

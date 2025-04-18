@@ -6,7 +6,7 @@ public class PremiumBehavior implements UserBehavior {
     private int month;
 
     public PremiumBehavior(int month) {
-        this.month = month;
+        this.setMonth(month);
     }
 
     @Override
@@ -38,6 +38,12 @@ public class PremiumBehavior implements UserBehavior {
     }
     public int getMonth() {
         return month;
+    }
+    public void setMonth(int month) {
+        if (month <= 0)
+            throw new InvalidOperationException("Premium time must be positive!");
+
+        this.month = month;
     }
 }
 

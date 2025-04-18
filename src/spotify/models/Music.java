@@ -1,7 +1,5 @@
 package spotify.models;
-
 import spotify.exceptions.InvalidOperationException;
-
 import java.util.ArrayList;
 
 public class Music {
@@ -30,7 +28,7 @@ public class Music {
         for (Music m : allMusics) {
             if (m.title.equals(title)) result.add(m);
         }
-        return result;
+        return result.isEmpty() ? null: result;
     }
 
     public static Music search(String title, User singer) {

@@ -41,7 +41,7 @@ public class Main {
         }
         System.out.println("\nUpgrading user1 to premium...");
         u1.buyPremium( 3);
-        System.out.println("Sina is now premium: " + (u1.getBehavior() instanceof PremiumBehavior));
+        System.out.println("Sina is now premium: " +((PremiumBehavior)u1.getBehavior()).getMonth());
         System.out.println("\nTesting premium features:");
         System.out.println("\nTesting unlimited plays for premium user:");
         for (int i = 1; i <= 10; i++) {
@@ -63,7 +63,11 @@ public class Main {
         favorites.shuffle();
 
         favorites.removeMusic(m1, "12345678");
-
+        if (favorites.searchInPlaylist("To Chi Midooni") == null) {
+            System.out.println("Successfully deleted ");
+        } else {
+            System.out.println("Fail to delete the music");
+        }
 
         System.out.println("\nSearch results:");
         for (Music m : favorites.searchInPlaylist("Delam Gerefte")) {
