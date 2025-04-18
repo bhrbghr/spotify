@@ -1,5 +1,7 @@
 package spotify.models;
 
+import spotify.exceptions.InvalidOperationException;
+
 import java.util.ArrayList;
 
 public class Music {
@@ -9,6 +11,9 @@ public class Music {
     private static ArrayList<Music> allMusics = new ArrayList<>();
 
     public Music(String title, User singer) {
+        for (Music music: allMusics)
+            if (music.title.equals(title) && music.singer.equals(singer))
+                throw new InvalidOperationException("Music already exist");
         this.title = title;
         this.singer = singer;
         this.numberOfStream = 0;
