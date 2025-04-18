@@ -1,5 +1,3 @@
-package spotify;
-
 import spotify.behaviors.*;
 import spotify.exceptions.InvalidOperationException;
 import spotify.models.*;
